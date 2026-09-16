@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-container":"#fffbff","surface-bright":"#fbf9f5","on-background":"#1b1c1a","error-container":"#ffdad6","on-primary":"#ffffff","primary-fixed":"#ffdbd1","on-primary-fixed-variant":"#80290c","surface-container":"#efeeea","on-tertiary":"#ffffff","on-tertiary-fixed":"#2a1800","secondary":"#485f84","primary":"#9d3e20","on-error":"#ffffff","inverse-on-surface":"#f2f0ed","on-error-container":"#93000a","secondary-fixed":"#d5e3ff","primary-container":"#bd5535","on-tertiary-container":"#fffbff","inverse-surface":"#30312e","outline-variant":"#ddc0b8","surface-container-low":"#f5f3ef","inverse-primary":"#ffb59f","on-secondary-fixed-variant":"#30476a","surface-variant":"#e4e2de","surface-container-highest":"#e4e2de","on-tertiary-fixed-variant":"#643f00","on-surface":"#1b1c1a","surface-container-lowest":"#ffffff","surface-dim":"#dbdad6","on-primary-fixed":"#3a0a00","secondary-container":"#bbd3fd","tertiary-fixed-dim":"#ffb95a","error":"#ba1a1a","background":"#fbf9f5","tertiary-container":"#a26800","on-secondary":"#ffffff","outline":"#8a726b","on-secondary-fixed":"#001b3c","surface":"#fbf9f5","on-surface-variant":"#56423c","secondary-fixed-dim":"#b0c7f1","surface-container-high":"#eae8e4","primary-fixed-dim":"#ffb59f","surface-tint":"#a04022","tertiary-fixed":"#ffddb6","on-secondary-container":"#445a7f","tertiary":"#815200"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"2rem","gutter":"1.25rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","space-sm":"0.5rem","space-xl":"2.5rem"},"fontFamily":{"display-lg":["Epilogue"],"display-lg-mobile":["Epilogue"],"headline-md":["Epilogue"],"headline-lg-mobile":["Epilogue"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg":["Epilogue"],"body-md":["Plus Jakarta Sans"],"headline-sm":["Epilogue"]},"fontSize":{"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg-mobile":["34px",{"lineHeight":"42px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_12px_rgba(29,53,87,0.06)]"><div class="h-20 w-full max-w-[1280px] mx-auto px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><a class="flex items-center gap-3 group" data-path="planner" href="#"><img alt="Busan Alley Balancer Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X_n3JYW-A3wqe7bOrnjN9QoL5q-QxdWEXXy2b3fyGcQb9chQkikD_4VZmxdrWp0WU8r21QgQu-jT3cEJyB4EjwM4HYqeuIw6OFGnRpkwRu37v7wICpWveMYccAS6piJ6Bkc5CF5u-ONrkoFoqyb3CoEx4-AA18L6CHyZaP8oveAoHsP5hJZ1L2gQjMoG0Y1shtnhg3yAGrvqXj4686_VjnpURPWk2pEV0tgfGPyCLFzrjVq-OfqxmT9kc"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary group-hover:text-primary-container transition-colors tracking-tight leading-none">부산 골목 밸런서</span><span class="font-label-sm text-label-sm text-secondary leading-none mt-1">Busan Alley Balancer</span></div></a><span class="hidden xl:inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">골목 여행 맞춤 설계기</span></div><nav class="hidden lg:flex items-center gap-1 p-1 bg-surface-container-low rounded-xl" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-sm"><a class="px-3.5 py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="planner" href="#">맞춤 밸런서 설계</a><a class="px-3.5 py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="alley-trails" href="#">골목 코스 탐색</a><a aria-current="page" class="px-3.5 py-2 transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-sm" data-path="budget-live" href="#">실시간 예산 피드백</a><a class="px-3.5 py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="my-travel-pass" href="#">나의 여행 패스</a></nav><div class="flex items-center gap-3 shrink-0"><div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-[0_2px_8px_rgba(29,53,87,0.04)]"><span class="material-symbols-outlined text-tertiary text-base">account_balance_wallet</span><span class="font-label-sm text-label-sm text-on-surface-variant">총 예산</span><span class="font-label-lg text-label-lg text-primary font-bold">₩180,000</span></div><button class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-[0_2px_0_#80290c] active:translate-y-[1px] transition-all" type="button"><span class="material-symbols-outlined text-base">add_location_alt</span><span class="hidden sm:inline">새 코스 시작</span></button><div class="relative flex items-center"><button class="rounded-full focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcqQhlkKSa5tf2uIYv-Zbt7HPcIdRqDIGVFPO546Rf1ThAyWYYsIig6Q8Dyp2Zg-_5D6IPBBnbQ7QVX7Uj794p4n21ddDg4gExDP1fngFBZd4cCgY-eod_R91ZEUPzist4OJeQQMGIBvA2jpAHRXjnBD7-iIu3-XL-NC5jAlUtgkppUHW28twmyd72aZLkkDBn9NouFLTgOzokh2wncVlQYnT6fLV62z7OlASYRGNl9rhU2Auc2ACL"/></button></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-20rem)]"><div class="flex flex-col w-full">
+<!-- Top Real-time Dynamic Ambient Strip -->
+<section class="w-full bg-surface-container-low py-space-md shadow-sm">
+<div class="max-w-[1280px] mx-auto px-margin flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm uppercase tracking-wider font-bold">LIVE ON-AIR</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">현재 여행 중: 2박 3일 부산 골목 낭만 투어</span>
+<span class="px-2 py-0.5 rounded-lg bg-surface-container-highest text-secondary font-label-md text-label-md font-semibold">Day 2 (영도 · 초량)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-tertiary">sync</span>
+          최근 동기화: 방금 전 (영도 흰여울길 입구)
+        </span>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all active:scale-95" id="quickAddExpenseTrigger" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>간편 지출 기록</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Main Live Tracker Grid -->
+<div class="max-w-[1280px] mx-auto px-margin py-space-lg w-full space-y-space-lg">
+<!-- 1. Live Trip Status Banner (Editorial Hero Bento Card) -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest shadow-md p-space-lg">
+<!-- Background subtle atmospheric seaside tint -->
+<div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-secondary-fixed/30 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-64 h-64 rounded-full bg-primary-fixed/20 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<!-- Left 7 cols: Overall Gauge & Numbers -->
+<div class="lg:col-span-7 space-y-space-md">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">부산 골목 스마트 밸런서 현황</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-0.5">총 지출 밸런스 페이스</h2>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-base text-primary">speed</span>
+<span>목표 대비 안정 속도 권역</span>
+</div>
+</div>
+<!-- Total Balance Big Numbers -->
+<div class="flex flex-wrap items-baseline gap-x-space-md gap-y-1">
+<span class="font-display-lg text-display-lg text-primary font-bold tracking-tight">₩124,500</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant font-normal">/ ₩200,000 목표</span>
+<span class="px-2.5 py-1 rounded-md bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-bold">
+              잔여 ₩75,500 (37.7%)
+            </span>
+</div>
+<!-- Multi-segmented Progress Bar -->
+<div class="space-y-1.5">
+<div class="h-3.5 w-full bg-surface-container rounded-full overflow-hidden flex p-0.5 gap-0.5">
+<!-- Food (69.2% of spent) -> approx 43.1% of total -->
+<div class="h-full bg-primary-container rounded-l-full transition-all duration-500" style="width: 43.1%" title="식비 지출"></div>
+<!-- Transit (14.8% of spent) -> approx 9.2% of total -->
+<div class="h-full bg-secondary transition-all duration-500" style="width: 9.2%" title="교통비 지출"></div>
+<!-- Experience (16.0% of spent) -> approx 10.0% of total -->
+<div class="h-full bg-tertiary transition-all duration-500" style="width: 10.0%" title="체험/입장료 지출"></div>
+<!-- Remaining Budget Space -->
+<div class="h-full bg-surface-variant rounded-r-full flex-1" title="잔여 예산"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>식비 69.2%</span>
+<span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>교통 14.8%</span>
+<span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>문화체험 16.0%</span>
+</div>
+<span class="font-bold text-on-surface">총 62.3% 소진됨</span>
+</div>
+</div>
+</div>
+<!-- Right 5 cols: Smart Health Insight Banner inspired by Busan hillside mood -->
+<div class="lg:col-span-5 rounded-xl bg-surface-container p-space-md shadow-inner flex flex-col justify-between h-full space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5 font-label-md text-label-md text-primary font-bold">
+<span class="material-symbols-outlined text-base">health_and_safety</span>
+              스마트 밸런스 진단
+            </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-secondary font-label-sm text-label-sm font-semibold">
+              안전(A-)
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+<strong class="text-primary font-semibold">식비가 계획보다 ₩15,000 초과</strong>되었지만, 영도 버스 환승 · 도보 걷기로 <strong class="text-secondary font-semibold">교통비 ₩8,000을 세이브</strong>하여 전체 예산 리듬은 매우 건강합니다!
+          </p>
+<div class="flex items-center justify-between pt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-tertiary">wb_sunny</span>
+              영도 흰여울 골목 쾌적 도보 날씨
+            </span>
+<a class="text-primary hover:underline font-semibold flex items-center gap-0.5" href="#rebalance-section">
+              추천 리밸런싱 보기 →
+            </a>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Live Category Balance Meter Cards (3 Pillars) -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">카테고리별 실시간 지출 모니터링</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">실시간 추천 골목길 알림 활성화됨</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Pillar 1: Transit -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-lg bg-secondary-fixed text-on-secondary-fixed">
+<span class="material-symbols-outlined text-xl">directions_bus</span>
+</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">교통비</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">버스 · 마을버스 · 지하철</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed/50 text-secondary font-label-sm text-label-sm font-bold">
+                예산 여유
+              </span>
+</div>
+<div class="pt-2">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-md text-headline-md text-secondary font-bold">₩18,400</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">목표 ₩35,000</span>
+</div>
+<!-- Mini Bar -->
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden mt-1.5">
+<div class="h-full bg-secondary rounded-full" style="width: 52.5%"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mt-1">
+<span>52.5% 소진</span>
+<span class="font-semibold text-secondary">잔여 ₩16,600</span>
+</div>
+</div>
+</div>
+<!-- Real-time Tip Card -->
+<div class="rounded-lg bg-surface-container p-3 space-y-1">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-bold">
+<span class="material-symbols-outlined text-sm">directions_walk</span>
+<span>실시간 골목 팁</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+              남은 저녁 일정은 <strong>남포동 → 보수동 책방골목</strong> 도보 12분 산책 구간입니다. 대중교통 없이 <strong>교통비 ₩0원으로 방어</strong> 가능합니다!
+            </p>
+</div>
+</div>
+<!-- Pillar 2: Food (Overspent) -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-lg bg-primary-fixed text-on-primary-fixed">
+<span class="material-symbols-outlined text-xl">restaurant</span>
+</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">식비 · 로컬 미식</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">골목 카페 · 노포 맛집</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">
+                주의 필요
+              </span>
+</div>
+<div class="pt-2">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-md text-headline-md text-primary font-bold">₩86,100</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">목표 ₩110,000</span>
+</div>
+<!-- Mini Bar -->
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden mt-1.5">
+<div class="h-full bg-primary rounded-full" style="width: 78.2%"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mt-1">
+<span>78.2% 소진</span>
+<span class="font-semibold text-primary">잔여 ₩23,900</span>
+</div>
+</div>
+</div>
+<!-- Real-time Tip Card -->
+<div class="rounded-lg bg-primary-fixed/20 p-3 space-y-1">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-primary font-bold">
+<span class="material-symbols-outlined text-sm">savings</span>
+<span>밸런스 복구 추천</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+              흰여울 오션뷰 카페 추가 결제로 ₩15,000 초과 페이스입니다. 저녁은 <strong>자갈치 가성비 고등어구이 백반(₩7,000)</strong>으로 맛과 지출을 조화롭게 맞춰보세요.
+            </p>
+</div>
+</div>
+<!-- Pillar 3: Experience & Entrance Fee -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-xl">local_activity</span>
+</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">입장료 · 골목 체험</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">모노레일 · 공방 · 문화전시</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed/60 text-on-tertiary-fixed-variant font-label-sm text-label-sm font-bold">
+                예산 풍족
+              </span>
+</div>
+<div class="pt-2">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-md text-headline-md text-tertiary font-bold">₩20,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">목표 ₩55,000</span>
+</div>
+<!-- Mini Bar -->
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden mt-1.5">
+<div class="h-full bg-tertiary rounded-full" style="width: 36.3%"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mt-1">
+<span>36.3% 소진</span>
+<span class="font-semibold text-tertiary">잔여 ₩35,000</span>
+</div>
+</div>
+</div>
+<!-- Real-time Tip Card -->
+<div class="rounded-lg bg-surface-container p-3 space-y-1">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-tertiary font-bold">
+<span class="material-symbols-outlined text-sm">confirmation_number</span>
+<span>여유 자금 골목 제안</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+              초량 무료 이바구길 모노레일 이용 덕에 ₩35,000 잔여! <strong>흰여울 문화마을 독립영화 상영관(₩9,000)</strong> 관람을 일정에 추가할 수 있습니다.
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. "원클릭 스마트 리밸런싱 (One-Click Rebalance)" Recommendation Card -->
+<div class="rounded-xl bg-surface-container-high p-space-lg shadow-sm" id="rebalance-section">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<div class="lg:col-span-8 space-y-space-sm">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+            AI 알고리즘 실시간 예산 재배분 제안
+          </div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">식비 초과분을 체험 잔여 예산으로 즉시 밸런싱</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            식비 누적 초과액 <strong>₩15,000</strong>을 아직 넉넉한 <strong>체험·입장료 예산(잔여 ₩35,000)에서 자동 차감</strong>하여 전체 여행 패스의 총 예산 한도를 완벽하게 지켜냅니다. 추가 지출 충격 없이 남은 2일을 홀가분하게 즐기세요!
+          </p>
+<!-- Pre / Post Comparison Diagram -->
+<div class="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="rounded-lg bg-surface-container-lowest p-3 shadow-inner">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">현재 상태 (식비 압박)</span>
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface">
+<span>식비 잔여: <strong class="text-error">₩23,900</strong> (부족 위험)</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface mt-1">
+<span>체험 잔여: <strong class="text-tertiary">₩35,000</strong> (잉여)</span>
+</div>
+</div>
+<div class="rounded-lg bg-primary-fixed/40 p-3 shadow-inner">
+<span class="font-label-sm text-label-sm text-primary block mb-1 font-bold">리밸런싱 적용 후 (균형 회복)</span>
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface">
+<span>식비 잔여: <strong class="text-primary font-bold">₩38,900 (+₩15,000)</strong></span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface mt-1">
+<span>체험 잔여: <strong class="text-on-surface font-semibold">₩20,000 (-₩15,000)</strong></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action / Approval Switch -->
+<div class="lg:col-span-4 flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container-lowest shadow-sm space-y-space-md text-center">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">balance</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">원클릭 리밸런싱 실행</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">클릭 즉시 모든 예산 게이지가 재조정됩니다</span>
+</div>
+<button class="w-full py-3 px-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-md transition-all active:translate-y-[1px] flex items-center justify-center gap-2" id="rebalanceBtn" type="button">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+<span>추천대로 ₩15,000 재조정 승인</span>
+</button>
+<span class="font-label-sm text-label-sm text-secondary font-medium hidden" id="rebalanceStatus">
+            ✓ 리밸런싱이 성공적으로 적용되었습니다!
+          </span>
+</div>
+</div>
+</div>
+<!-- 4. Live Busan Alley Receipt Stream & Photo Ledger -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left 8 cols: Recent Expense Feed -->
+<div class="lg:col-span-8 space-y-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">실시간 골목 영수증 · 지출 타임라인</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">영도 · 초량 · 감천 골목에서 발생한 현장 지출 스트림</p>
+</div>
+<!-- Dongbaekjeon Cashback Tag Badge -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold shadow-sm">
+<span class="material-symbols-outlined text-base">savings</span>
+<span>부산 동백전 캐시백 ₩6,200 자동 누적</span>
+</div>
+</div>
+<!-- Receipt Stream Items -->
+<div class="space-y-3">
+<!-- Item 1 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-2xl">coffee</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">식비</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">14:20 · 영도 흰여울마을</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">흰여울 파도소리 오션뷰 카페</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">바다 드립커피 2잔 + 부산 쌀 까눌레 · 동백전 5% 적립</p>
+</div>
+</div>
+<div class="text-right shrink-0 flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">-₩16,500</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">receipt_long</span>
+                스마트 영수증 인증됨
+              </span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-2xl">directions_bus</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">교통비</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">13:05 · 부산역 → 영선아파트</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">영도구 82번 시내버스 환승</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">부산 대중교통 알뜰 환승 할인 100% 적용</p>
+</div>
+</div>
+<div class="text-right shrink-0 flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">-₩1,550</span>
+<span class="font-label-sm text-label-sm text-secondary">환승할인 ₩1,200 절약</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-2xl">soup_kitchen</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">식비</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">11:45 · 초량 이바구길</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">초량 불백 원조 168골목식당</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">이바구 추억의 돼지불백 2인 세트</p>
+</div>
+</div>
+<div class="text-right shrink-0 flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">-₩22,000</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">camera_alt</span>
+                식도락 사진 1장 첨부
+              </span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-2xl">palette</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold">체험</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10:10 · 초량 이바구길 골목</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">이바구 점빵 옛날 교복 · 엽서 체험</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">어르신 일자리 상생 기금 엽서 3종 구매</p>
+</div>
+</div>
+<div class="text-right shrink-0 flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-tertiary font-bold">-₩8,000</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">local_florist</span>
+                골목 상생 스탬프 획득
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right 4 cols: Interactive Quick Alley Scanner & Visual Postcard Note -->
+<div class="lg:col-span-4 space-y-space-md">
+<!-- Interactive Alley Quick-Add Widget -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">빠른 현장 기록</span>
+<span class="material-symbols-outlined text-primary text-xl">qr_code_scanner</span>
+</div>
+<form class="space-y-space-xs" id="quickExpenseForm" onsubmit="event.preventDefault(); addExpenseMock();">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">상점/지출처 명</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all" id="storeNameInput" placeholder="예: 영도 깡깡이마을 다방" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">카테고리</label>
+<select class="w-full px-3 py-2 rounded-lg bg-surface-container-low font-label-md text-label-md text-on-surface focus:outline-none" id="categoryInput">
+<option value="식비">식비 · 미식</option>
+<option value="교통비">교통비</option>
+<option value="체험">입장료 · 체험</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">금액 (₩)</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/40" id="amountInput" placeholder="10000" required="" type="number"/>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-sm text-label-sm">
+<label class="inline-flex items-center gap-1.5 cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>동백전 캐시백 자동 산정</span>
+</label>
+</div>
+<button class="w-full mt-2 py-2.5 rounded-lg bg-secondary hover:bg-on-secondary-fixed text-on-secondary font-label-md text-label-md font-bold shadow-sm transition-all flex items-center justify-center gap-1.5" type="submit">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+<span>1초 영수증 기록 완료</span>
+</button>
+</form>
+</div>
+<!-- Visual Postcard: Busan Hillside Warmth Snapshot -->
+<div class="rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="relative h-44 w-full">
+<img class="w-full h-full object-cover" data-alt="A warm, sun-drenched winding alleyway staircase in Busan's hillside village lined with blooming potted hydrangeas and vintage brick houses under a clear blue sky, evoking cozy coastal exploration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRogi3jhONs6PF37a5uqkPWMnpB8CBItKhm41YD6h0gqs2F-APUYFsEJpt7ZM1BcdFff-ZytsGUEQ6h2XWFvvl8eaaKQCT_-F12Cq75EhZIspGk3ESK1_lnOK7IWqx3jNntw2x8fiy5uPDYI-3gppU9chCxaF_ZtFTt2_OqviF65Yl8r3DJzo2mSvH8vzGGvZB7uT60yYDte0WIAoi69EOFAI1iRv2sNjKpATr32vadIiXMk2ZuTKi"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-space-sm">
+<span class="font-label-sm text-label-sm text-on-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">photo_camera</span>
+                영도 흰여울 골목 계단길 포토 스팟
+              </span>
+<p class="font-body-sm text-body-sm text-on-primary/90 mt-0.5">
+                "화분 너머 바다가 보이는 이곳, 무료로 만나는 부산의 낭만 골목!"
+              </p>
+</div>
+</div>
+<div class="p-space-sm flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">favorite</span>
+              포토 스팟 42곳 저장됨
+            </span>
+<span class="text-primary font-semibold">지도에서 확인</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Script -->
+<script>
+    const rebalanceBtn = document.getElementById('rebalanceBtn');
+    const rebalanceStatus = document.getElementById('rebalanceStatus');
+
+    if (rebalanceBtn) {
+      rebalanceBtn.addEventListener('click', function() {
+        this.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">autorenew</span><span>밸런싱 계산 중...</span>';
+        this.disabled = true;
+        setTimeout(() => {
+          this.innerHTML = '<span class="material-symbols-outlined text-lg">done_all</span><span>리밸런싱 완료!</span>';
+          this.classList.remove('bg-primary', 'hover:bg-primary-container');
+          this.classList.add('bg-secondary');
+          if (rebalanceStatus) {
+            rebalanceStatus.classList.remove('hidden');
+          }
+        }, 600);
+      });
+    }
+
+    const quickAddExpenseTrigger = document.getElementById('quickAddExpenseTrigger');
+    if (quickAddExpenseTrigger) {
+      quickAddExpenseTrigger.addEventListener('click', function() {
+        const storeInput = document.getElementById('storeNameInput');
+        if (storeInput) {
+          storeInput.focus();
+          storeInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+
+    function addExpenseMock() {
+      const storeInput = document.getElementById('storeNameInput');
+      const amountInput = document.getElementById('amountInput');
+      if (storeInput && amountInput) {
+        alert(`[${storeInput.value}] ₩${Number(amountInput.value).toLocaleString()} 지출이 기록되었습니다.\n부산 골목 밸런서 지표에 즉각 반영되었습니다.`);
+        storeInput.value = '';
+        amountInput.value = '';
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low mt-space-xl shadow-[inset_0_1px_0_rgba(29,53,87,0.05)]"><div class="max-w-[1280px] mx-auto px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-space-lg"><div class="md:col-span-2 space-y-space-sm"><div class="flex items-center gap-2"><span class="font-headline-sm text-headline-sm text-primary">부산 골목 밸런서</span><span class="px-2 py-0.5 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm">공공 여행 데이터 연동</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-lg">감천, 초량 이바구길, 영도 흰여울마을 골목의 소상공인과 함께하는 스마트 도보 여행 예산 플래너. 과소비 걱정 없이 따스한 바다 언덕 골목을 만끽하세요.</p><div class="flex items-center gap-space-md pt-2"><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary"><span class="material-symbols-outlined text-sm text-secondary">eco</span>골목 상생 탄소저감 서약</span><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary"><span class="material-symbols-outlined text-sm text-secondary">verified_user</span>실시간 예산 최적화 알고리즘 100% 보증</span></div></div><div class="space-y-space-xs"><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider font-semibold">골목 파트너스</h4><ul class="space-y-1.5 font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="#">부산관광공사 협력 네트워크</a></li><li><a class="hover:text-primary transition-colors" href="#">영도구 로컬 크리에이터 연합</a></li><li><a class="hover:text-primary transition-colors" href="#">동구 이바구 정거장 안내소</a></li><li><a class="hover:text-primary transition-colors" href="#">부산 동백전 가맹점 매칭</a></li></ul></div><div class="space-y-space-xs"><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider font-semibold">안내 및 고객지원</h4><ul class="space-y-1.5 font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="#">예산 밸런싱 가이드북</a></li><li><a class="hover:text-primary transition-colors" href="#">도보 안전 수칙 &amp; 쉼터 지도</a></li><li><a class="hover:text-primary transition-colors" href="#">실시간 부산 버스/마을버스 요금표</a></li><li><a class="hover:text-primary transition-colors" href="#">1:1 맞춤 코스 문의</a></li></ul></div></div><div class="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant/80"><p>© 2024 Busan Alley Balancer. 부산 골목길 도보 여행 스마트 지출 가이드. All rights reserved.</p><div class="flex items-center gap-space-md"><a class="hover:text-primary transition-colors" href="#">개인정보처리방침</a><a class="hover:text-primary transition-colors" href="#">이용약관</a><a class="hover:text-primary transition-colors" href="#">오픈데이터 API 명세</a></div></div></div></footer></body></html>

@@ -1,0 +1,289 @@
+@import './variables.css';
+
+/* ============================================================
+   Base Resets & Global Styles
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+  min-height: 100vh;
+}
+
+/* Material Symbols Outlined setup */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+}
+
+/* Scrollbar polish */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-container-low);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+}
+
+/* ============================================================
+   Typography Hierarchy (from DESIGN.md)
+   ============================================================ */
+
+.font-display-lg {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .font-display-lg {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+.font-headline-lg {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .font-headline-lg {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+.font-headline-md {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: -0.005em;
+}
+
+@media (min-width: 768px) {
+  .font-headline-md {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.font-headline-sm {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+@media (min-width: 768px) {
+  .font-headline-sm {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.font-body-lg {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.font-body-md {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.font-body-sm {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.font-label-lg {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+}
+
+.font-label-md {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+}
+
+.font-label-sm {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.03em;
+}
+
+/* Number display with tabular numbers to prevent layout shift */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   Layout & Container Utilities
+   ============================================================ */
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  padding-top: 80px; /* Header height offset */
+}
+
+.content-max-width {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .content-max-width {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-max-width {
+    padding-left: var(--spacing-margin);
+    padding-right: var(--spacing-margin);
+  }
+}
+
+/* Ambient glow blobs */
+.ambient-glow-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.ambient-blob-primary {
+  position: absolute;
+  top: -8rem;
+  left: -8rem;
+  width: 24rem;
+  height: 24rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 219, 209, 0.4);
+  filter: blur(64px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-blob-secondary {
+  position: absolute;
+  top: 12rem;
+  right: -6rem;
+  width: 28rem;
+  height: 28rem;
+  border-radius: var(--radius-full);
+  background: rgba(213, 227, 255, 0.45);
+  filter: blur(72px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-blob-tertiary {
+  position: absolute;
+  bottom: 4rem;
+  left: 30%;
+  width: 20rem;
+  height: 20rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 221, 182, 0.35);
+  filter: blur(64px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keyframes */
+@keyframes ping-glow {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-glow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}

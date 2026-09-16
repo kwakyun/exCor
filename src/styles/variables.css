@@ -1,0 +1,111 @@
+:root {
+  /* ============================================================
+     Busan Alley Balancer Design Tokens
+     Warm Editorial Contemporary with Tactile Coastal Elements
+     ============================================================ */
+
+  /* Primary (Terracotta Brick) */
+  --color-primary: #9d3e20;
+  --color-primary-container: #bd5535;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #fffbff;
+  --color-primary-fixed: #ffdbd1;
+  --color-primary-fixed-dim: #ffb59f;
+  --color-on-primary-fixed: #3a0a00;
+  --color-on-primary-fixed-variant: #80290c;
+  --color-primary-shadow: #80290c;
+
+  /* Secondary (Deep Ocean Cobalt) */
+  --color-secondary: #485f84;
+  --color-secondary-dark: #1D3557;
+  --color-secondary-container: #bbd3fd;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #445a7f;
+  --color-secondary-fixed: #d5e3ff;
+  --color-secondary-fixed-dim: #b0c7f1;
+  --color-on-secondary-fixed: #001b3c;
+  --color-on-secondary-fixed-variant: #30476a;
+
+  /* Tertiary (Warm Ochre) */
+  --color-tertiary: #815200;
+  --color-tertiary-warm: #F3A83B;
+  --color-tertiary-container: #a26800;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #fffbff;
+  --color-tertiary-fixed: #ffddb6;
+  --color-tertiary-fixed-dim: #ffb95a;
+  --color-on-tertiary-fixed: #2a1800;
+  --color-on-tertiary-fixed-variant: #643f00;
+
+  /* Neutral Accent (Sea Glass Teal) */
+  --color-accent-teal: #457B9D;
+  --color-accent-teal-fixed: #e2f0f7;
+  --color-accent-teal-dark: #234f6b;
+
+  /* Surfaces & Backgrounds (Crisp Ivory Cream) */
+  --color-surface: #fbf9f5;
+  --color-surface-dim: #dbdad6;
+  --color-surface-bright: #fbf9f5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3ef;
+  --color-surface-container: #efeeea;
+  --color-surface-container-high: #eae8e4;
+  --color-surface-container-highest: #e4e2de;
+  --color-surface-variant: #e4e2de;
+
+  /* Texts & Outlines */
+  --color-on-surface: #1b1c1a;
+  --color-on-surface-variant: #56423c;
+  --color-inverse-surface: #30312e;
+  --color-inverse-on-surface: #f2f0ed;
+  --color-outline: #8a726b;
+  --color-outline-variant: #ddc0b8;
+
+  /* Error & Alerts */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* 3-Pillar Specific Mapping */
+  --pillar-transit: #485f84;
+  --pillar-transit-bg: #d5e3ff;
+  --pillar-food: #9d3e20;
+  --pillar-food-bg: #ffdbd1;
+  --pillar-activity: #815200;
+  --pillar-activity-bg: #ffddb6;
+  --pillar-buffer: #457B9D;
+  --pillar-buffer-bg: #e2f0f7;
+
+  /* Typography */
+  --font-display: 'Epilogue', -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Pretendard', -apple-system, sans-serif;
+  --font-numeric: 'Plus Jakarta Sans', -apple-system, sans-serif;
+
+  /* Border Radii */
+  --radius-xs: 0.25rem; /* 4px */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem; /* 16px */
+  --radius-2xl: 1.5rem; /* 24px */
+  --radius-full: 9999px;
+
+  /* Shadows (Sun-cast ambient elevations) */
+  --shadow-sm: 0 1px 3px rgba(29, 53, 87, 0.05), 0 1px 2px rgba(216, 106, 72, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(216, 106, 72, 0.08), 0 2px 6px -1px rgba(29, 53, 87, 0.05);
+  --shadow-lg: 0 16px 36px -6px rgba(29, 53, 87, 0.12);
+  --shadow-inner: inset 0 2px 4px 0 rgba(29, 53, 87, 0.04);
+  --shadow-button-primary: 0 2px 0 #80290c;
+  --shadow-button-secondary: 0 2px 0 #30476a;
+
+  /* Layout Spacing */
+  --spacing-gutter: 1.25rem;
+  --spacing-margin: 2rem;
+  --max-width: 1280px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}

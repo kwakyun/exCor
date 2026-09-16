@@ -61,11 +61,11 @@ export const ShareModal: React.FC<ShareModalProps> = ({ plan, onClose }) => {
         (item) =>
           `${item.order}. ${item.timeSlot} | ${item.spot.name} (${
             item.cost === 0 ? '무료' : item.cost.toLocaleString() + '원'
-          })\n   - ${item.spot.signature}`
+          })\n   - ${item.spot.signature || item.spot.summary}`
       ),
       `━━━━━━━━━━━━━━━━━━━━━━━━`,
       `💡 로컬 꿀팁: ${plan.district.localTip}`,
-      `✨ 생성: 부산 골목 밸런서 (exCor Travel Planner)`,
+      `✨ 생성: 부산 골목 밸런서 (Busan Alley Balancer)`,
     ].filter(Boolean);
     return lines.join('\n');
   };
@@ -96,100 +96,135 @@ export const ShareModal: React.FC<ShareModalProps> = ({ plan, onClose }) => {
   return (
     <div className="modal-backdrop" id="share-modal-backdrop" onClick={onClose}>
       <div
-        className="modal-content animate-fade-in"
-        id="share-modal-content"
+        className="modal-dialog"
+        id="share-modal-dialog"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <Share2 size={18} color="var(--color-primary)" />
-            <span className="modal-title">여행 코스 & 예산 내역 공유</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: 'var(--radius-md)',
+                backgroundColor: 'var(--color-primary-fixed)',
+                color: 'var(--color-primary)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Share2 size={18} />
+            </span>
+            <div>
+              <h3 className="font-headline-sm" style={{ margin: 0 }}>
+                여행 코스 & 예산 내역 공유
+              </h3>
+              <span className="font-label-sm" style={{ color: 'var(--color-on-surface-variant)' }}>
+                친구와 간편하게 공유할 수 있는 맞춤 일정표
+              </span>
+            </div>
           </div>
           <button
             type="button"
             className="modal-close-btn"
             id="close-share-modal-btn"
             onClick={onClose}
+            aria-label="닫기"
           >
             <X size={20} />
           </button>
         </div>
 
-        {/* 백엔드 연동 고유 단축 링크 카드 */}
+        {/* Short link box */}
         <div
           style={{
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-color)',
-            borderRadius: 12,
-            padding: 12,
-            marginBottom: 12,
+            backgroundColor: 'var(--color-surface-container-low)',
+            border: '1.5px solid rgba(29, 53, 87, 0.08)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '12px 14px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginBottom: 6,
-            }}
-          >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span
+              className="font-label-sm"
               style={{
-                fontSize: 12,
-                fontWeight: 600,
                 color: 'var(--color-primary)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: 4,
+                gap: '4px',
+                fontWeight: 700,
               }}
             >
               <Sparkles size={14} />
-              백엔드 저장 완료 (공유 슬러그: {shareSlug || '생성 중...'})
+              온라인 공유 링크 (슬러그: {shareSlug || '생성 중...'})
             </span>
           </div>
 
-          <div style={{ display: 'flex', gap: 8 }}>
+          <div style={{ display: 'flex', gap: '8px' }}>
             <input
               type="text"
               readOnly
               value={shareUrl || (isSaving ? '서버에 저장 중...' : '')}
               style={{
                 flex: 1,
-                padding: '8px 10px',
-                fontSize: 13,
-                borderRadius: 8,
-                border: '1px solid var(--border-color)',
-                background: 'var(--bg-secondary)',
-                color: 'var(--text-main)',
+                padding: '8px 12px',
+                fontSize: '13px',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--color-outline-variant)',
+                backgroundColor: 'var(--color-surface-container-lowest)',
+                color: 'var(--color-on-surface)',
+                outline: 'none',
               }}
             />
             <button
               type="button"
-              className="bar-btn-secondary"
+              className="btn-surface"
               id="copy-share-url-btn"
               onClick={handleCopyLink}
               disabled={!shareUrl}
-              style={{ padding: '0 12px', whiteSpace: 'nowrap' }}
+              style={{ padding: '0 14px', whiteSpace: 'nowrap' }}
             >
-              {copiedLink ? <Check size={16} /> : <LinkIcon size={16} />}
+              {copiedLink ? <Check size={15} color="var(--color-primary)" /> : <LinkIcon size={15} />}
               <span>{copiedLink ? '복사됨' : '링크 복사'}</span>
             </button>
           </div>
         </div>
 
-        <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>
-          친구에게 카카오톡이나 메모장으로 바로 보낼 수 있도록 깔끔하게 정리된 일정표입니다.
+        <p className="font-body-sm" style={{ color: 'var(--color-on-surface-variant)', margin: 0 }}>
+          카카오톡이나 인스타그램 DM으로 바로 전송할 수 있는 텍스트 포맷입니다.
         </p>
 
-        <div className="share-itinerary-preview" id="share-itinerary-text">
+        {/* Text preview */}
+        <pre
+          style={{
+            backgroundColor: 'var(--color-surface-container-high)',
+            borderRadius: 'var(--radius-md)',
+            padding: '12px',
+            fontSize: '12px',
+            lineHeight: 1.55,
+            color: 'var(--color-on-surface)',
+            whiteSpace: 'pre-wrap',
+            wordBreak: 'break-all',
+            maxHeight: '220px',
+            overflowY: 'auto',
+            fontFamily: 'inherit',
+            border: '1px solid rgba(29, 53, 87, 0.06)',
+          }}
+          id="share-itinerary-text"
+        >
           {itineraryText}
-        </div>
+        </pre>
 
         <button
           type="button"
-          className="cta-button"
+          className="btn-primary"
           id="copy-itinerary-clipboard-btn"
           onClick={handleCopyText}
+          style={{ width: '100%', padding: '12px' }}
         >
           {copiedText ? (
             <>
@@ -207,3 +242,5 @@ export const ShareModal: React.FC<ShareModalProps> = ({ plan, onClose }) => {
     </div>
   );
 };
+
+export default ShareModal;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CourseItem, Spot } from '../../types';
-import { X, Check, RefreshCw } from 'lucide-react';
+import { X, Check, RefreshCw, Sparkles, MapPin } from 'lucide-react';
 
 interface SwapSpotModalProps {
   item: CourseItem | null;
@@ -20,99 +20,142 @@ export const SwapSpotModal: React.FC<SwapSpotModalProps> = ({
   return (
     <div className="modal-backdrop" id="swap-modal-backdrop" onClick={onClose}>
       <div
-        className="modal-content animate-fade-in"
-        id="swap-modal-content"
+        className="modal-dialog"
+        id="swap-modal-dialog"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <RefreshCw size={18} color="var(--color-primary)" />
-            <span className="modal-title">다른 골목 스팟으로 교체</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: 'var(--radius-md)',
+                backgroundColor: 'var(--color-primary-fixed)',
+                color: 'var(--color-primary)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <RefreshCw size={18} />
+            </span>
+            <div>
+              <h3 className="font-headline-sm" style={{ margin: 0 }}>
+                다른 골목 스팟으로 교체
+              </h3>
+              <span className="font-label-sm" style={{ color: 'var(--color-on-surface-variant)' }}>
+                예산과 동선에 맞춰 실시간 재계산됩니다
+              </span>
+            </div>
           </div>
+
           <button
             type="button"
             className="modal-close-btn"
             id="close-swap-modal-btn"
             onClick={onClose}
+            aria-label="닫기"
           >
             <X size={20} />
           </button>
         </div>
 
-        <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>
-          현재 선택된 <strong>{item.spot.name}</strong> 대신 방문할 수 있는 동일 골목 내 후보
-          장소들입니다.
-        </p>
+        <div
+          style={{
+            padding: '10px 14px',
+            borderRadius: 'var(--radius-md)',
+            backgroundColor: 'var(--color-surface-container-low)',
+            fontSize: '13px',
+            color: 'var(--color-on-surface-variant)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+          }}
+        >
+          <Sparkles size={16} color="var(--color-primary)" style={{ flexShrink: 0 }} />
+          <span>
+            현재 스팟 <strong style={{ color: 'var(--color-on-surface)' }}>{item.spot.name}</strong>(₩{currentPrice.toLocaleString()}) 대신 선택 가능한 추천 장소들입니다.
+          </span>
+        </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        {/* Alternative spots list */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '4px' }}>
           {item.alternativeSpots.map((alt: Spot) => {
             const priceDiff = alt.price - currentPrice;
             const diffText =
               priceDiff === 0
                 ? '동일 금액'
                 : priceDiff > 0
-                ? `+${priceDiff.toLocaleString()}원`
-                : `${priceDiff.toLocaleString()}원 절약`;
+                ? `+₩${priceDiff.toLocaleString()}`
+                : `-₩${Math.abs(priceDiff).toLocaleString()} 절약`;
 
-            const diffColor = priceDiff > 0 ? '#e17055' : '#00b894';
+            const isSavings = priceDiff < 0;
 
             return (
               <div
                 key={alt.id}
-                className="swap-item-card"
-                id={`swap-option-${alt.id}`}
+                style={{
+                  padding: '12px 14px',
+                  borderRadius: 'var(--radius-lg)',
+                  backgroundColor: 'var(--color-surface-container-lowest)',
+                  border: '1.5px solid rgba(29, 53, 87, 0.08)',
+                  boxShadow: 'var(--shadow-sm)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  cursor: 'pointer',
+                  transition: 'all var(--transition-fast)',
+                }}
+                className="timeline-card"
                 onClick={() => {
                   onSelectNewSpot(item.order, alt.id);
                   onClose();
                 }}
               >
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--text-main)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                    <span className="font-label-lg" style={{ color: 'var(--color-on-surface)', fontWeight: 700 }}>
                       {alt.name}
                     </span>
                     <span
+                      className="badge-pill"
                       style={{
-                        fontSize: 11,
-                        padding: '2px 6px',
-                        borderRadius: 4,
-                        background: '#edf2f7',
-                        color: diffColor,
+                        backgroundColor: isSavings ? 'var(--color-accent-teal-fixed)' : 'rgba(255, 219, 209, 0.5)',
+                        color: isSavings ? 'var(--color-accent-teal-dark)' : 'var(--color-primary)',
                         fontWeight: 700,
                       }}
                     >
                       {diffText}
                     </span>
                   </div>
-                  <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>
-                    {alt.signature}
+
+                  <span className="font-body-sm" style={{ color: 'var(--color-on-surface-variant)', fontSize: '12px' }}>
+                    {alt.signature || alt.summary}
                   </span>
+
+                  {alt.address && (
+                    <span style={{ fontSize: '11px', color: 'var(--color-secondary)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <MapPin size={11} /> {alt.address}
+                    </span>
+                  )}
                 </div>
 
-                <div style={{ textAlign: 'right' }}>
+                <div style={{ textAlign: 'right', flexShrink: 0, paddingLeft: '12px' }}>
                   <div
-                    style={{
-                      fontSize: 14,
-                      fontWeight: 800,
-                      color: 'var(--color-primary)',
-                      fontFamily: 'Outfit, sans-serif',
-                    }}
+                    className="font-headline-sm tabular-nums"
+                    style={{ color: 'var(--color-primary)', fontWeight: 800 }}
                   >
-                    {alt.isFree || alt.price === 0 ? '무료' : `${alt.price.toLocaleString()}원`}
+                    {alt.isFree || alt.price === 0 ? '무료' : `₩${alt.price.toLocaleString()}`}
                   </div>
                   <button
                     type="button"
+                    className="btn-primary"
                     style={{
-                      marginTop: 4,
-                      fontSize: 11,
-                      fontWeight: 700,
-                      color: 'white',
-                      background: 'var(--color-primary)',
                       padding: '4px 10px',
-                      borderRadius: 4,
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 4,
+                      fontSize: '11px',
+                      marginTop: '4px',
+                      borderRadius: 'var(--radius-sm)',
                     }}
                   >
                     <Check size={12} />
@@ -127,3 +170,5 @@ export const SwapSpotModal: React.FC<SwapSpotModalProps> = ({
     </div>
   );
 };
+
+export default SwapSpotModal;

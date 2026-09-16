@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "팀 거버넌스 및 규칙 문의"
+    url: "https://github.com/kwakyun/exCor/tree/main/docs/governance"
+    about: "5인 개발팀 및 AI Agent 운영 규칙에 대한 가이드를 확인하세요."

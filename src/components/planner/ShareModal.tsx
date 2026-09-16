@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TravelPlan } from '../../types';
-import { X, Copy, Check, Share2 } from 'lucide-react';
+import { PlanApiClient } from '../../services/planApi';
+import { X, Copy, Check, Share2, Link as LinkIcon, Sparkles } from 'lucide-react';
 
 interface ShareModalProps {
   plan: TravelPlan | null;
@@ -8,7 +9,35 @@ interface ShareModalProps {
 }
 
 export const ShareModal: React.FC<ShareModalProps> = ({ plan, onClose }) => {
-  const [copied, setCopied] = useState(false);
+  const [copiedText, setCopiedText] = useState(false);
+  const [copiedLink, setCopiedLink] = useState(false);
+  const [shareSlug, setShareSlug] = useState<string | null>(null);
+  const [shareUrl, setShareUrl] = useState<string>('');
+  const [isSaving, setIsSaving] = useState(false);
+
+  // 모달 오픈 시 백엔드 API에 코스 저장 및 고유 슬러그 발급
+  useEffect(() => {
+    if (!plan) return;
+
+    let isMounted = true;
+    setIsSaving(true);
+
+    PlanApiClient.savePlan(plan)
+      .then((res) => {
+        if (isMounted && res.success) {
+          setShareSlug(res.slug);
+          setShareUrl(res.shareUrl);
+        }
+      })
+      .catch((err) => console.error('코스 저장 오류:', err))
+      .finally(() => {
+        if (isMounted) setIsSaving(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [plan]);
 
   if (!plan) return null;
 
@@ -18,6 +47,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ plan, onClose }) => {
       `📍 대상 골목: ${plan.district.name}`,
       `🚇 교통 안내: ${plan.district.subwayStation}`,
       `💰 총 예산: ${plan.preference.budget.toLocaleString()}원`,
+      shareUrl ? `🔗 일정 바로보기: ${shareUrl}` : '',
       `━━━━━━━━━━━━━━━━━━━━━━━━`,
       `[3대 비용 지출 명세]`,
       `• 교통비: ${plan.costBreakdown.transitCost.toLocaleString()}원 (${plan.costBreakdown.transitPercent}%)`,
@@ -36,20 +66,30 @@ export const ShareModal: React.FC<ShareModalProps> = ({ plan, onClose }) => {
       `━━━━━━━━━━━━━━━━━━━━━━━━`,
       `💡 로컬 꿀팁: ${plan.district.localTip}`,
       `✨ 생성: 부산 골목 밸런서 (exCor Travel Planner)`,
-    ];
+    ].filter(Boolean);
     return lines.join('\n');
   };
 
   const itineraryText = generateItineraryText();
 
-  const handleCopy = async () => {
+  const handleCopyText = async () => {
     try {
       await navigator.clipboard.writeText(itineraryText);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
+      setCopiedText(true);
+      setTimeout(() => setCopiedText(false), 2500);
     } catch {
-      // Fallback
-      setCopied(true);
+      setCopiedText(true);
+    }
+  };
+
+  const handleCopyLink = async () => {
+    if (!shareUrl) return;
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2500);
+    } catch {
+      setCopiedLink(true);
     }
   };
 
@@ -75,6 +115,68 @@ export const ShareModal: React.FC<ShareModalProps> = ({ plan, onClose }) => {
           </button>
         </div>
 
+        {/* 백엔드 연동 고유 단축 링크 카드 */}
+        <div
+          style={{
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-color)',
+            borderRadius: 12,
+            padding: 12,
+            marginBottom: 12,
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: 6,
+            }}
+          >
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                color: 'var(--color-primary)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 4,
+              }}
+            >
+              <Sparkles size={14} />
+              백엔드 저장 완료 (공유 슬러그: {shareSlug || '생성 중...'})
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', gap: 8 }}>
+            <input
+              type="text"
+              readOnly
+              value={shareUrl || (isSaving ? '서버에 저장 중...' : '')}
+              style={{
+                flex: 1,
+                padding: '8px 10px',
+                fontSize: 13,
+                borderRadius: 8,
+                border: '1px solid var(--border-color)',
+                background: 'var(--bg-secondary)',
+                color: 'var(--text-main)',
+              }}
+            />
+            <button
+              type="button"
+              className="bar-btn-secondary"
+              id="copy-share-url-btn"
+              onClick={handleCopyLink}
+              disabled={!shareUrl}
+              style={{ padding: '0 12px', whiteSpace: 'nowrap' }}
+            >
+              {copiedLink ? <Check size={16} /> : <LinkIcon size={16} />}
+              <span>{copiedLink ? '복사됨' : '링크 복사'}</span>
+            </button>
+          </div>
+        </div>
+
         <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>
           친구에게 카카오톡이나 메모장으로 바로 보낼 수 있도록 깔끔하게 정리된 일정표입니다.
         </p>
@@ -87,17 +189,17 @@ export const ShareModal: React.FC<ShareModalProps> = ({ plan, onClose }) => {
           type="button"
           className="cta-button"
           id="copy-itinerary-clipboard-btn"
-          onClick={handleCopy}
+          onClick={handleCopyText}
         >
-          {copied ? (
+          {copiedText ? (
             <>
               <Check size={18} />
-              <span>클립보드 복사 완료!</span>
+              <span>전체 일정 복사 완료!</span>
             </>
           ) : (
             <>
               <Copy size={18} />
-              <span>전체 일정 클립보드에 복사하기</span>
+              <span>전체 일정 텍스트 복사하기</span>
             </>
           )}
         </button>

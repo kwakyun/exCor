@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CourseItem, TravelPlan, TravelPreference } from './types';
 import { generateTravelPlan, swapSpotInPlan } from './services/budgetCalculator';
+import { PlanApiClient } from './services/planApi';
 import { Header } from './components/layout/Header';
 import { BudgetInputForm } from './components/planner/BudgetInputForm';
 import { BudgetBalanceBar } from './components/planner/BudgetBalanceBar';
@@ -9,7 +10,7 @@ import { CourseTimeline } from './components/planner/CourseTimeline';
 import { SwapSpotModal } from './components/planner/SwapSpotModal';
 import { ShareModal } from './components/planner/ShareModal';
 import confetti from 'canvas-confetti';
-import { RotateCcw, Share2 } from 'lucide-react';
+import { RotateCcw, Share2, Sparkles } from 'lucide-react';
 import './styles/globals.css';
 import './styles/components.css';
 
@@ -25,10 +26,26 @@ export const App: React.FC = () => {
   const [plan, setPlan] = useState<TravelPlan | null>(null);
   const [swapItem, setSwapItem] = useState<CourseItem | null>(null);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [loadedFromSlug, setLoadedFromSlug] = useState<string | null>(null);
 
-  // 초기 자동 계획 생성
+  // 초기 자동 계획 생성 또는 백엔드 공유 코스 로드
   useEffect(() => {
-    handleGeneratePlan();
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('plan');
+
+    if (slug) {
+      PlanApiClient.getPlanBySlug(slug).then((savedPlan) => {
+        if (savedPlan) {
+          setPlan(savedPlan);
+          setPreference(savedPlan.preference);
+          setLoadedFromSlug(slug);
+          return;
+        }
+        handleGeneratePlan();
+      });
+    } else {
+      handleGeneratePlan();
+    }
   }, []);
 
   const handleGeneratePlan = () => {
@@ -59,6 +76,46 @@ export const App: React.FC = () => {
       <Header />
 
       <main className="content-wrapper" id="main-content">
+        {loadedFromSlug && (
+          <div
+            style={{
+              background: 'rgba(10, 77, 162, 0.08)',
+              border: '1px solid rgba(10, 77, 162, 0.25)',
+              borderRadius: 12,
+              padding: '10px 14px',
+              marginBottom: 16,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              fontSize: 13,
+              color: 'var(--color-primary)',
+            }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 600 }}>
+              <Sparkles size={16} />
+              공유된 코스를 불러왔습니다 (코드: {loadedFromSlug})
+            </span>
+            <button
+              type="button"
+              onClick={() => {
+                setLoadedFromSlug(null);
+                window.history.replaceState({}, '', window.location.pathname);
+                handleGeneratePlan();
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--text-muted)',
+                cursor: 'pointer',
+                fontSize: 12,
+                textDecoration: 'underline',
+              }}
+            >
+              내 조건으로 새로짜기
+            </button>
+          </div>
+        )}
+
         {/* 예산 및 스타일 설정 폼 */}
         <BudgetInputForm
           preference={preference}

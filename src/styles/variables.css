@@ -1,0 +1,55 @@
+:root {
+  /* 부산 오션 & 골목상권 컬러 팔레트 */
+  --color-primary: #0a4da2;
+  --color-primary-light: #2b7de9;
+  --color-primary-dark: #002d66;
+  
+  --color-accent-coral: #ff5e57;
+  --color-accent-gold: #f39c12;
+  --color-accent-mint: #00b894;
+  --color-accent-purple: #6c5ce7;
+
+  /* 3대 비용 카테고리 컬러 */
+  --cost-transit: #0984e3;
+  --cost-transit-bg: #eaf4fd;
+  --cost-food: #e17055;
+  --cost-food-bg: #fdf0ed;
+  --cost-admission: #00b894;
+  --cost-admission-bg: #e6f9f5;
+  --cost-buffer: #fdcb6e;
+  --cost-buffer-bg: #fef9e7;
+
+  /* 배경 및 뉴트럴 톤 */
+  --bg-main: #f4f7fb;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-glass: rgba(255, 255, 255, 0.82);
+  --bg-surface: #ffffff;
+  --bg-subtle: #edf2f7;
+
+  /* 텍스트 컬러 */
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  --text-inverse: #ffffff;
+
+  /* 테두리 & 디바이더 */
+  --border-light: rgba(226, 232, 240, 0.85);
+  --border-focus: #2b7de9;
+
+  /* 그림자 (Soft Elevations) */
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.12);
+  --shadow-floating: 0 20px 40px -15px rgba(10, 77, 162, 0.25);
+
+  /* 곡률 */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* 애니메이션 */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}

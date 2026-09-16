@@ -31,6 +31,9 @@ exCor/
 │   └── pull_request_template.md       # 사전점검, 위험도 평가 포함 PR 템플릿
 │
 ├── docs/                              # 📚 [문서] 기술 및 프로젝트 문서
+│   ├── product/                       # 📋 제품 요구사항 정의서 (PRD)
+│   ├── architecture/                  # 🏛️ 시스템 아키텍처, 엔진 명세, 로드맵, ADR
+│   │   └── adr/                       # 아키텍처 결정 기록 (ADR-001 ~ 003)
 │   ├── governance/                    # 사람/팀을 위한 거버넌스 및 리뷰 가이드
 │   ├── templates/                     # QA 및 PR 판단 보고서 양식
 │   └── prompts/                       # AI Agent 마스터 초기화 프롬프트 개정본
@@ -69,6 +72,19 @@ git switch -c feature/<issue-number>-<short-description>
 # 또는 Agent 전용 브랜치
 git switch -c agent/<issue-number>-<short-description>
 ```
+
+---
+
+## 📚 제품 및 아키텍처 설계 문서 (Architecture & Design)
+
+- 📋 [제품 요구사항 정의서 (PRD)](docs/product/prd-busan-alley-balancer.md): 문제 정의, 타깃 페르소나, 핵심 기능 및 성공 지표
+- 🏛️ [시스템 아키텍처 및 데이터 흐름 설계서](docs/architecture/system-architecture.md): 계층 구조, Mermaid 시퀀스 다이어그램, 도메인 모델
+- ⚙️ [3대 비용 밸런싱 알고리즘 명세서](docs/architecture/budget-balancing-engine.md): 배낭 최적화 수식, 스코어링 공식, 스팟 교체(Swap) 메커니즘
+- 🚀 [Phase 2 확장 로드맵 & 외부 연동 설계](docs/architecture/phase2-roadmap-and-integration.md): 부산 공공데이터 API, 카카오/네이버 지도, 백엔드 DB ERD
+- 📝 아키텍처 결정 기록 (ADR):
+  - [ADR-001: 클라이언트 사이드 예산 최적화 엔진 채택](docs/architecture/adr/ADR-001-client-side-budget-optimizer.md)
+  - [ADR-002: 3-Pillar 비용 모델 및 대중교통비 사전 차감 전략](docs/architecture/adr/ADR-002-three-pillar-budget-allocation.md)
+  - [ADR-003: 네이버/카카오 지도 딥링크 및 모바일 클립보드 공유 전략](docs/architecture/adr/ADR-003-external-deep-linking-strategy.md)
 
 ---
 

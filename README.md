@@ -1,4 +1,4 @@
-# exCor · 부산 골목 밸런서
+# busan-alley-balancer · 부산 골목 밸런서
 
 정해진 여행 예산 안에서 부산 골목상권의 방문 장소와 비용을 계획하는 MVP입니다.
 교통비·식비·체험비를 함께 살펴보고 장소를 바꿀 때 예산이 어떻게 달라지는지 보여줍니다.
@@ -24,8 +24,8 @@
 ## 실행과 검증
 
 ~~~bash
-git clone https://github.com/kwakyun/exCor.git
-cd exCor
+git clone https://github.com/kwakyun/busan-alley-balancer.git
+cd busan-alley-balancer
 npm ci
 npm run dev
 ~~~

@@ -1,0 +1,102 @@
+{
+  "_comment": "P3-01 claim-v1 typed data 공통 fixture. chain(솔리디티)/서버(발급 서명)/지갑(02) 세 소비 경로가 이 파일의 domain/types/message로부터 정확히 같은 digest를 재생산해야 한다. 실제 배포 metadata가 아니다.",
+  "version": "claim-v1.0.0-rc1",
+  "generatedBy": "agent_04 P3-01 (chain/scripts/computeClaimFixture.ts)",
+  "domain": {
+    "name": "BusanAlleyStamp",
+    "version": "1",
+    "chainId": 31337,
+    "verifyingContract": "0x1111111111111111111111111111111111111111"
+  },
+  "types": {
+    "Claim": [
+      {
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "name": "campaignId",
+        "type": "bytes32"
+      },
+      {
+        "name": "spotId",
+        "type": "bytes32"
+      },
+      {
+        "name": "nonce",
+        "type": "uint256"
+      },
+      {
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ]
+  },
+  "primaryType": "Claim",
+  "input": {
+    "recipient": "0x2222222222222222222222222222222222222222",
+    "canonicalSpotId": "jp-f1",
+    "campaignNamespace": "busan-alley:demo:jeonpo:v1",
+    "nonce": "1",
+    "deadline": "1790208000"
+  },
+  "derived": {
+    "chainSpotId": "0x1f969455311e0a51dc56e7aa4de816a9cae53ef3c1150f3dbbd568f2a0c9f977",
+    "campaignId": "0xa625ceeae7332dd8d9e563f95de4b0beeb3a432cd02b238047a7db3101cf468c"
+  },
+  "message": {
+    "recipient": "0x2222222222222222222222222222222222222222",
+    "campaignId": "0xa625ceeae7332dd8d9e563f95de4b0beeb3a432cd02b238047a7db3101cf468c",
+    "spotId": "0x1f969455311e0a51dc56e7aa4de816a9cae53ef3c1150f3dbbd568f2a0c9f977",
+    "nonce": "1",
+    "deadline": "1790208000"
+  },
+  "hashes": {
+    "eip712DomainTypehash": "0x8b73c3c69bb8fe3d512ecc4cf759cc79239f7b179b0ffacaa9a75d522b39400f",
+    "claimTypehash": "0x9e1a39774938d305a1e50e86b52b24a25344571cc33fab1d7badf3257d1132dc",
+    "domainSeparator": "0x047419b0301faf9739e3515e9d5b105c532f60ab95be54dc6b49e322086001be",
+    "structHash": "0x2606edaabc0953c64dc2f7199f1677999a9ecb12dd9abb4f3d36200044494159",
+    "digest": "0x8da2b6bc6bdcec1d1df4f5629047b23afc1e573277af695ab76d4815a8b8c0d3",
+    "digestCrossCheckedWithViemHashTypedData": true
+  },
+  "issuerSignature": {
+    "note": "로컬 fixture 전용 결정론적 테스트 키(Hardhat/Foundry 표준 니모닉 파생 계정)로 생성. 실제 운영 서명자 키가 아니며 원문 개인키는 이 파일에도, 어떤 문서에도 기록하지 않는다.",
+    "signerAddress": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "signature": "0x0afe0e89754d98d8363ed9a82ffe6d8852ea403185fda719844589a88c32350b5c477fe871223518628b280a66e3d56e13b02e49e079a54328a7ccc16e52b8ab1c",
+    "recoveredAddress": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "recoveryMatchesSigner": true
+  },
+  "tamperVectors": {
+    "note": "계약/서버 테스트에서 '거절되어야 한다'를 확인하는 용도. 원본 서명을 그대로 재사용하면 recover 결과가 issuer와 달라지거나 domain이 달라져 검증에 실패해야 한다.",
+    "tamperedRecipient": {
+      "recipient": "0x3333333333333333333333333333333333333333",
+      "digest": "0xc3aa5df442883290973faa3792b886b6eb18734a7ecea32e830db231246eda16"
+    },
+    "otherChain": {
+      "chainId": 1,
+      "digest": "0xd20d94c99cdede70b3ba6a900f1b05ec159fcbcccbbf90bff45cb335a7ee3f3f"
+    },
+    "otherContract": {
+      "verifyingContract": "0x4444444444444444444444444444444444444444",
+      "digest": "0x9a0934622e0f30f755eb39e420645e3be17f23f1a9506c0dd8bd8a751b7dd8e0"
+    }
+  },
+  "boundaryCases": {
+    "note": "claim() 검증은 block.timestamp > deadline일 때만 거절한다(ClaimExpired). deadline과 정확히 같은 시각은 허용된다 - chain/test/AlleyStampRegistry.ts의 '만료(deadline) 경계' 테스트로 실행 검증했다. docs/contracts/fixtures/claim-v1.json의 boundaryCases와 동일한 규칙.",
+    "deadline": "1790208000",
+    "cases": [
+      {
+        "now": "1790207999",
+        "expected": "allow"
+      },
+      {
+        "now": "1790208000",
+        "expected": "allow"
+      },
+      {
+        "now": "1790208001",
+        "expected": "reject"
+      }
+    ]
+  }
+}

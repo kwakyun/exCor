@@ -1,0 +1,12 @@
+{
+  "version":"claim-v1.0.0-rc1",
+  "status":"input-only-awaiting-agent04-hash-vectors",
+  "domain":{"name":"BusanAlleyStamp","version":"1","chainId":"31337","verifyingContract":"0x1111111111111111111111111111111111111111"},
+  "primaryType":"Claim",
+  "types":{"Claim":[{"name":"recipient","type":"address"},{"name":"campaignId","type":"bytes32"},{"name":"spotId","type":"bytes32"},{"name":"nonce","type":"uint256"},{"name":"deadline","type":"uint256"}]},
+  "input":{"recipient":"0x2222222222222222222222222222222222222222","campaignIdText":"busan-alley:demo:jeonpo:v1","spotIdText":"jp-f1","nonce":"1","deadline":"1790208000"},
+  "transform":"keccak256(UTF-8 exact text), not SHA3-256",
+  "expectedHashes":null,
+  "boundaryCases":[{"now":"1790207999","expected":"allow"},{"now":"1790208000","expected":"allow"},{"now":"1790208001","expected":"reject"}],
+  "rejectMutations":["recipient","campaignId","spotId","nonce","deadline","domain.chainId","domain.verifyingContract","msg.sender","revoked issuer","used nonce","duplicate stamp with new nonce","paused","inactive campaign","unregistered spot"]
+}

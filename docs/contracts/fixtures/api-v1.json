@@ -1,0 +1,360 @@
+{
+  "version": "api-v1.0.0-rc4",
+  "cases": [
+    {
+      "id": "save",
+      "method": "POST",
+      "path": "/api/v1/plans",
+      "headers": {
+        "Idempotency-Key": "qa-save-001"
+      },
+      "body": {
+        "preference": {
+          "budgetKRW": 30000,
+          "partySize": 2,
+          "districtId": "jeonpo",
+          "theme": "all",
+          "transitType": "transit_walk"
+        },
+        "orderedSpotIds": [
+          "qa-f1",
+          "qa-c1",
+          "qa-a1"
+        ],
+        "catalogVersion": "qa-synthetic-v1"
+      },
+      "expectedHttp": 201,
+      "expectedSnapshotCase": "two-person",
+      "retry": "same slug/snapshot/createdAt; requestId may differ",
+      "response": {
+        "data": {
+          "slug": "qa-plan-001",
+          "snapshot": {
+            "schemaVersion": 2,
+            "catalogVersion": "qa-synthetic-v1",
+            "pricingPolicyVersion": "qa-pricing-draft-v1",
+            "preference": {
+              "budgetKRW": 30000,
+              "partySize": 2,
+              "districtId": "jeonpo",
+              "theme": "all",
+              "transitType": "transit_walk"
+            },
+            "districtId": "jeonpo",
+            "items": [
+              {
+                "order": 1,
+                "spotId": "qa-f1",
+                "name": "합성 식당",
+                "category": "food",
+                "unitPriceKRW": 8000,
+                "pricingUnit": "perPerson",
+                "costKRW": 16000
+              },
+              {
+                "order": 2,
+                "spotId": "qa-c1",
+                "name": "합성 카페",
+                "category": "cafe",
+                "unitPriceKRW": 3000,
+                "pricingUnit": "perPerson",
+                "costKRW": 6000
+              },
+              {
+                "order": 3,
+                "spotId": "qa-a1",
+                "name": "합성 무료 체험",
+                "category": "admission",
+                "unitPriceKRW": 0,
+                "pricingUnit": "perPerson",
+                "costKRW": 0
+              }
+            ],
+            "transitCostKRW": 6200,
+            "totalSpent": 28200,
+            "remainingBudget": 1800
+          },
+          "createdAt": "2026-09-24T01:00:00.000Z"
+        },
+        "requestId": "qa-save"
+      }
+    },
+    {
+      "id": "missing",
+      "expectedHttp": 404,
+      "response": {
+        "error": {
+          "code": "PLAN_NOT_FOUND",
+          "message": "저장한 코스를 찾을 수 없습니다."
+        },
+        "requestId": "qa-404"
+      }
+    },
+    {
+      "id": "conflict",
+      "expectedHttp": 409,
+      "response": {
+        "error": {
+          "code": "IDEMPOTENCY_CONFLICT",
+          "message": "같은 키에 다른 요청입니다."
+        },
+        "requestId": "qa-409"
+      }
+    },
+    {
+      "id": "storage-down",
+      "expectedHttp": 503,
+      "response": {
+        "error": {
+          "code": "STORAGE_UNAVAILABLE",
+          "message": "저장 서비스를 사용할 수 없습니다."
+        },
+        "requestId": "qa-503"
+      }
+    },
+    {
+      "id": "clarify",
+      "expectedHttp": 200,
+      "response": {
+        "data": {
+          "status": "clarify",
+          "question": "총예산과 인원을 알려 주세요.",
+          "fields": [
+            "budgetKRW",
+            "partySize"
+          ]
+        },
+        "requestId": "qa-clarify"
+      }
+    },
+    {
+      "id": "insufficient",
+      "expectedHttp": 200,
+      "response": {
+        "data": {
+          "status": "insufficient_evidence",
+          "reason": "필수 접근성 조건을 확인할 근거가 없습니다."
+        },
+        "requestId": "qa-insufficient"
+      }
+    },
+    {
+      "id": "infeasible",
+      "expectedHttp": 200,
+      "response": {
+        "data": {
+          "status": "infeasible",
+          "reason": "후보의 필수 카테고리가 부족합니다.",
+          "suggestedChanges": [
+            "검색 범위를 넓혀 주세요."
+          ]
+        },
+        "requestId": "qa-infeasible"
+      }
+    },
+    {
+      "id": "model-down",
+      "expectedHttp": 503,
+      "response": {
+        "error": {
+          "code": "MODEL_UNAVAILABLE",
+          "message": "추천 서비스를 잠시 사용할 수 없습니다."
+        },
+        "requestId": "qa-model"
+      }
+    },
+    {
+      "id": "recommendation-ok",
+      "expectedHttp": 200,
+      "response": {
+        "data": {
+          "status": "ok",
+          "plan": {
+            "schemaVersion": 2,
+            "catalogVersion": "qa-synthetic-v1",
+            "pricingPolicyVersion": "qa-pricing-draft-v1",
+            "preference": {
+              "budgetKRW": 30000,
+              "partySize": 2,
+              "districtId": "jeonpo",
+              "theme": "all",
+              "transitType": "transit_walk"
+            },
+            "districtId": "jeonpo",
+            "items": [
+              {
+                "order": 1,
+                "spotId": "qa-f1",
+                "name": "합성 식당",
+                "category": "food",
+                "unitPriceKRW": 8000,
+                "pricingUnit": "perPerson",
+                "costKRW": 16000
+              },
+              {
+                "order": 2,
+                "spotId": "qa-c1",
+                "name": "합성 카페",
+                "category": "cafe",
+                "unitPriceKRW": 3000,
+                "pricingUnit": "perPerson",
+                "costKRW": 6000
+              },
+              {
+                "order": 3,
+                "spotId": "qa-a1",
+                "name": "합성 무료 체험",
+                "category": "admission",
+                "unitPriceKRW": 0,
+                "pricingUnit": "perPerson",
+                "costKRW": 0
+              }
+            ],
+            "transitCostKRW": 6200,
+            "totalSpent": 28200,
+            "remainingBudget": 1800
+          },
+          "claims": [
+            {
+              "text": "합성 카페는 테스트 카탈로그에서 인당 3000원입니다.",
+              "spotId": "qa-c1",
+              "sourceIds": [
+                "qa-source-1"
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "id": "qa-source-1",
+              "title": "합성 카페 테스트 자료",
+              "sourceKind": "internal",
+              "fetchedAt": "2026-09-24T01:00:00.000Z"
+            }
+          ],
+          "catalogVersion": "qa-synthetic-v1",
+          "corpusVersion": "qa-corpus-v1"
+        },
+        "requestId": "qa-recommendation"
+      },
+      "evidence": {
+        "sourceId": "qa-source-1",
+        "locator": "fixture:qa-source-1#price",
+        "text": "합성 카페. 테스트 예상 비용은 인당 3000원. 실제 영업 자료가 아니다."
+      }
+    },
+    {
+      "id": "get-saved",
+      "method": "GET",
+      "path": "/api/v1/plans/qa-plan-001",
+      "expectedHttp": 200,
+      "response": {
+        "data": {
+          "slug": "qa-plan-001",
+          "snapshot": {
+            "schemaVersion": 2,
+            "catalogVersion": "qa-synthetic-v1",
+            "pricingPolicyVersion": "qa-pricing-draft-v1",
+            "preference": {
+              "budgetKRW": 30000,
+              "partySize": 2,
+              "districtId": "jeonpo",
+              "theme": "all",
+              "transitType": "transit_walk"
+            },
+            "districtId": "jeonpo",
+            "items": [
+              {
+                "order": 1,
+                "spotId": "qa-f1",
+                "name": "합성 식당",
+                "category": "food",
+                "unitPriceKRW": 8000,
+                "pricingUnit": "perPerson",
+                "costKRW": 16000
+              },
+              {
+                "order": 2,
+                "spotId": "qa-c1",
+                "name": "합성 카페",
+                "category": "cafe",
+                "unitPriceKRW": 3000,
+                "pricingUnit": "perPerson",
+                "costKRW": 6000
+              },
+              {
+                "order": 3,
+                "spotId": "qa-a1",
+                "name": "합성 무료 체험",
+                "category": "admission",
+                "unitPriceKRW": 0,
+                "pricingUnit": "perPerson",
+                "costKRW": 0
+              }
+            ],
+            "transitCostKRW": 6200,
+            "totalSpent": 28200,
+            "remainingBudget": 1800
+          },
+          "createdAt": "2026-09-24T01:00:00.000Z"
+        },
+        "requestId": "qa-get"
+      }
+    }
+  ],
+  "requestCases": [
+    {
+      "id": "missing-budget-party",
+      "body": {
+        "query": "전포 추천",
+        "constraints": {
+          "districtId": "jeonpo"
+        },
+        "catalogVersion": "qa-synthetic-v1"
+      },
+      "expectedHttp": 200,
+      "expectedStatus": "clarify"
+    },
+    {
+      "id": "invalid-provided-party",
+      "body": {
+        "query": "전포 추천",
+        "constraints": {
+          "budgetKRW": 30000,
+          "partySize": 0
+        },
+        "catalogVersion": "qa-synthetic-v1"
+      },
+      "expectedHttp": 400,
+      "expectedCode": "INVALID_INPUT"
+    },
+    {
+      "id": "conflicting-budget",
+      "body": {
+        "query": "총예산은 5만원",
+        "constraints": {
+          "budgetKRW": 30000,
+          "partySize": 2,
+          "districtId": "jeonpo",
+          "theme": "all",
+          "transitType": "transit_walk"
+        },
+        "catalogVersion": "qa-synthetic-v1"
+      },
+      "expectedHttp": 200,
+      "expectedStatus": "clarify"
+    },
+    {
+      "id": "invalid-party-type",
+      "body": {
+        "query": "전포 추천",
+        "constraints": {
+          "budgetKRW": 30000,
+          "partySize": "two"
+        },
+        "catalogVersion": "qa-synthetic-v1"
+      },
+      "expectedHttp": 400,
+      "expectedCode": "INVALID_INPUT"
+    }
+  ]
+}

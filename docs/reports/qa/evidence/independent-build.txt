@@ -1,0 +1,13 @@
+Captured from agent_01 exec result d16fa4, 2026-09-24T10:16:40..10:16:46+09:00
+cwd C:/WorkSpace/MGG/github-upgrades/busan-alley-balancer
+HEAD 4cb7ca83069f58103707426f215de5c96bddfe01
+Command: npm.cmd run build
+tsc && vite build
+vite v6.4.3 building for production
+1914 modules transformed
+dist/index.html 1.47 kB gzip 0.86 kB
+dist/assets/index-CWR4YSNQ.css 17.36 kB gzip 3.72 kB
+dist/assets/index-DfaqQ_B4.js 343.47 kB gzip 96.03 kB
+built in 2.07s
+Command completed successfully. The earlier npm test in this same exec failed
+because Node test discovery overlapped Vitest; see P1.md for correction and rerun.

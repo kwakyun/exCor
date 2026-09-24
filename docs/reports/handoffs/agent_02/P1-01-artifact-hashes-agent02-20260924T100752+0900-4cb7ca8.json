@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-24T01:25:36.153Z",
+  "files": {
+    "benchmarks/baseline/README.md": "19fdf9a31eca217942b4cb21945739cdb5c7b496c0c1524f33a8a9dacffc0f39",
+    "benchmarks/baseline/run.mjs": "28a51d23f9419e3c81d9a51f4e6f75d7f5df3e72490be5dade70a443beb0831d",
+    "benchmarks/baseline/smoke.mjs": "a7c5afa27829d5022ca018b9679f2782dfa5e78f36fa002ffd512f4303f9241d",
+    "benchmarks/baseline/legacy-engine.cjs": "b4143e4292d1085813ebab110b6a116d51b85109088ee6242624f0d7049c5933",
+    "benchmarks/baseline/source-hashes.json": "f719362cf0d0d1fda4afc632388193b45a86cf85da1c73af5f06cd2e82cd34f3",
+    "benchmarks/baseline/baseline.json": "f1d79f0df0062cc16c28e2c6c24826ffffed9a95273b02f9c558b76f83eacdbe",
+    "benchmarks/baseline/runtime.json": "166fbf01ef8177f336b132bbb08746a3d36eb213c2ac6fae99e4120f8833ca38",
+    "docs/reports/performance/baseline.md": "4b090a7e431198230ddc96a1e0c894ec141f3723f61c23309477a8fde9a5cd9f"
+  }
+}

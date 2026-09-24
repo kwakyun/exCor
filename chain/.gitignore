@@ -1,0 +1,7 @@
+node_modules/
+cache/
+artifacts/
+dist/
+.env
+ignition/deployments/chain-31337/
+hardhat.config.sandbox.ts

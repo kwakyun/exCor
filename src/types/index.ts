@@ -80,6 +80,19 @@ export interface CourseItem {
   walkingDistanceNote?: string;
 }
 
+/**
+ * P1-02(agent_02)에서 추가: 엔진이 실제로 예산 내에서 코스를 완성했는지 보고하는
+ * 진단 정보. optional이라 기존 코드는 이 필드를 몰라도 그대로 동작한다(추가 전용 변경).
+ * status !== 'ok'이면 items/costBreakdown은 "가장 저렴한 참고 조합"이며 실제 지출이
+ * preference.budget을 초과할 수 있다 — ENGINE-FIX-02(예산 초과를 조용히 감추던 기존
+ * fallback 결함) 수정의 일부다.
+ */
+export interface PlanFeasibility {
+  status: 'ok' | 'infeasible' | 'invalid';
+  reason?: string;
+  minimumRequiredKRW?: number;
+}
+
 export interface TravelPlan {
   id: string;
   title: string;
@@ -89,4 +102,5 @@ export interface TravelPlan {
   items: CourseItem[];
   alleyLocalSecretTip: string;
   savingsInsight: string;
+  feasibility?: PlanFeasibility;
 }

@@ -1,0 +1,16 @@
+{
+  "runId": "agent01-20260924T100749+0900-4cb7ca8",
+  "baseCommit": "4cb7ca83069f58103707426f215de5c96bddfe01",
+  "capturedAt": "2026-09-24T06:34:23.055Z",
+  "files": {
+    "docs/contracts/core-v1.md": "adfd06bfee966770b81c1b58f6ddc038aef2e578b7f5f388b7e32753ce68dfb6",
+    "docs/contracts/api-v1.md": "1c6082a832f847692849f826afd1caad366fc3421defd2c70b9de6da2f58e5e0",
+    "docs/contracts/claim-v1.md": "f963864480c379d375f2ff739e333cc657c8cac73676c5d21233a72583d2508c",
+    "docs/contracts/fixtures/core-v1.json": "0ecc0bbab50d52696830228ace02e89a1021279c2bdbedaa7bf1bccf2272f7e3",
+    "docs/contracts/fixtures/api-v1.json": "52a55a2ee45ab120c4abfdc3b273c4d4ba53bf67cc5f3ed91a3d45990a9b5bb0",
+    "docs/contracts/fixtures/claim-v1.json": "69f4b80975f89333608d59ec81913c9ce3338fb133495b501889e951c5992869",
+    "tests/e2e/c0-fixtures.check.mjs": "498e4e8a16e15b9df340956830d3dea23195dd9c5f7c013b90627207c8ed3222",
+    "tests/e2e/p1-current.probe.mjs": "511c3950849ebb5a25af4ee7d98d0ec27f35a81971912220b1c95d3c785cb5eb"
+  },
+  "note": "api-v1.md/fixtures/api-v1.json rc4 갱신(01, Idempotency-Key TTL=24h 확정) 반영. 나머지 파일은 이전 캡처 hash 유지."
+}

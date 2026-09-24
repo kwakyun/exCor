@@ -1,0 +1,234 @@
+{
+  "version": "core-v1.0.0-rc2",
+  "policyStatus": "draft-demo-only",
+  "catalog": {
+    "version": "qa-synthetic-v1",
+    "pricingPolicyVersion": "qa-pricing-draft-v1",
+    "spots": [
+      {
+        "id": "qa-f1",
+        "districtId": "jeonpo",
+        "name": "합성 식당",
+        "category": "food",
+        "active": true,
+        "unitPriceKRW": 8000,
+        "pricingUnit": "perPerson",
+        "tags": []
+      },
+      {
+        "id": "qa-c1",
+        "districtId": "jeonpo",
+        "name": "합성 카페",
+        "category": "cafe",
+        "active": true,
+        "unitPriceKRW": 3000,
+        "pricingUnit": "perPerson",
+        "tags": []
+      },
+      {
+        "id": "qa-a1",
+        "districtId": "jeonpo",
+        "name": "합성 무료 체험",
+        "category": "admission",
+        "active": true,
+        "unitPriceKRW": 0,
+        "pricingUnit": "perPerson",
+        "tags": []
+      }
+    ],
+    "transit": [
+      {
+        "type": "transit_walk",
+        "perPersonLegKRW": 3100,
+        "perVehicleLegKRW": 0,
+        "vehicleCapacity": 4
+      },
+      {
+        "type": "comfort_taxi",
+        "perPersonLegKRW": 1550,
+        "perVehicleLegKRW": 6950,
+        "vehicleCapacity": 4
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "two-person",
+      "input": {
+        "budgetKRW": 30000,
+        "partySize": 2,
+        "districtId": "jeonpo",
+        "theme": "all",
+        "transitType": "transit_walk"
+      },
+      "expected": {
+        "status": "ok",
+        "orderedSpotIds": [
+          "qa-f1",
+          "qa-c1",
+          "qa-a1"
+        ],
+        "transitCostKRW": 6200,
+        "totalSpent": 28200,
+        "remainingBudget": 1800
+      }
+    },
+    {
+      "id": "vehicle-ceiling",
+      "input": {
+        "budgetKRW": 80000,
+        "partySize": 5,
+        "districtId": "jeonpo",
+        "theme": "all",
+        "transitType": "comfort_taxi"
+      },
+      "expected": {
+        "status": "ok",
+        "orderedSpotIds": [
+          "qa-f1",
+          "qa-c1",
+          "qa-a1"
+        ],
+        "transitCostKRW": 21650,
+        "totalSpent": 76650,
+        "remainingBudget": 3350
+      }
+    },
+    {
+      "id": "below-minimum",
+      "input": {
+        "budgetKRW": 28199,
+        "partySize": 2,
+        "districtId": "jeonpo",
+        "theme": "all",
+        "transitType": "transit_walk"
+      },
+      "expected": {
+        "status": "infeasible",
+        "minimumRequiredKRW": 28200,
+        "minimumScope": "catalog"
+      }
+    },
+    {
+      "id": "missing-category",
+      "input": {
+        "budgetKRW": 30000,
+        "partySize": 2,
+        "districtId": "jeonpo",
+        "theme": "all",
+        "transitType": "transit_walk",
+        "candidateSpotIds": [
+          "qa-f1",
+          "qa-c1"
+        ]
+      },
+      "expected": {
+        "status": "infeasible",
+        "minimumScope": "candidates"
+      }
+    },
+    {
+      "id": "invalid-party",
+      "input": {
+        "budgetKRW": 30000,
+        "partySize": 0,
+        "districtId": "jeonpo",
+        "theme": "all",
+        "transitType": "transit_walk"
+      },
+      "expected": {
+        "status": "invalid",
+        "fields": {
+          "partySize": "OUT_OF_RANGE"
+        }
+      }
+    },
+    {
+      "id": "zero-budget",
+      "input": {
+        "budgetKRW": 0,
+        "partySize": 1,
+        "districtId": "jeonpo",
+        "theme": "all",
+        "transitType": "transit_walk"
+      },
+      "expected": {
+        "status": "invalid",
+        "fields": {
+          "budgetKRW": "OUT_OF_RANGE"
+        }
+      }
+    }
+  ],
+  "swapCases": [
+    {
+      "id": "cross-district",
+      "baseCase": "two-person",
+      "order": 2,
+      "replacement": {
+        "id": "qa-c-other",
+        "districtId": "yeongdo",
+        "category": "cafe",
+        "unitPriceKRW": 3000,
+        "pricingUnit": "perPerson",
+        "active": true,
+        "name": "합성 교체 cross-district",
+        "tags": []
+      },
+      "expected": {
+        "status": "invalid",
+        "originalUnchanged": true
+      }
+    },
+    {
+      "id": "cross-category",
+      "baseCase": "two-person",
+      "order": 2,
+      "replacement": {
+        "id": "qa-f2",
+        "districtId": "jeonpo",
+        "category": "food",
+        "unitPriceKRW": 3000,
+        "pricingUnit": "perPerson",
+        "active": true,
+        "name": "합성 교체 cross-category",
+        "tags": []
+      },
+      "expected": {
+        "status": "invalid",
+        "originalUnchanged": true
+      }
+    },
+    {
+      "id": "over-budget-swap",
+      "baseCase": "two-person",
+      "order": 2,
+      "replacement": {
+        "id": "qa-c-expensive",
+        "districtId": "jeonpo",
+        "category": "cafe",
+        "unitPriceKRW": 5000,
+        "pricingUnit": "perPerson",
+        "active": true,
+        "name": "합성 교체 over-budget-swap",
+        "tags": []
+      },
+      "expected": {
+        "status": "infeasible",
+        "additionalBudgetKRW": 2200,
+        "originalUnchanged": true
+      }
+    },
+    {
+      "id": "unknown-id",
+      "baseCase": "two-person",
+      "order": 2,
+      "spotId": "qa-does-not-exist",
+      "expected": {
+        "status": "invalid",
+        "originalUnchanged": true
+      }
+    }
+  ],
+  "swapComposition": "For each swap case independently, clone catalog. If replacement exists append its complete CatalogSpot without changing version, then build the baseCase plan using the original catalog and call swap with replacement.id and the case catalog. For unknown-ID do not append any spot."
+}

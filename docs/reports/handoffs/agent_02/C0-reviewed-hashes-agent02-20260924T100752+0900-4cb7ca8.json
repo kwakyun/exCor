@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-24T01:23:47.269Z",
+  "files": {
+    "docs/contracts/core-v1.md": "adfd06bfee966770b81c1b58f6ddc038aef2e578b7f5f388b7e32753ce68dfb6",
+    "docs/contracts/api-v1.md": "89aeb25cac644b9670dbeb101fff4698c4c796b75adb6aac49d15acedf309ac2",
+    "docs/contracts/claim-v1.md": "f963864480c379d375f2ff739e333cc657c8cac73676c5d21233a72583d2508c",
+    "docs/contracts/fixtures/core-v1.json": "0ecc0bbab50d52696830228ace02e89a1021279c2bdbedaa7bf1bccf2272f7e3",
+    "docs/contracts/fixtures/api-v1.json": "70b75924d0b06bd9cb5d10b308f897a32209a591c740654ecec3140e23cd2509",
+    "docs/contracts/fixtures/claim-v1.json": "69f4b80975f89333608d59ec81913c9ce3338fb133495b501889e951c5992869",
+    "tests/e2e/c0-fixtures.check.mjs": "498e4e8a16e15b9df340956830d3dea23195dd9c5f7c013b90627207c8ed3222",
+    "tests/e2e/p1-current.probe.mjs": "511c3950849ebb5a25af4ee7d98d0ec27f35a81971912220b1c95d3c785cb5eb",
+    "docs/reports/qa/P1.md": "f700c0285534e74b29f07652e762301e8fad32d6e8a79d6144b027401323bbc6",
+    "docs/reports/qa/P2.md": "f373dd51758d335ae8630cc7beb5739aca700423ef0abf3e1ab4f20c04dbb854",
+    "docs/reports/qa/P3.md": "671c3bb25aaceddf29480058c8d5c0e36739cd3b3784a6cce4ef4ab912df2841",
+    "docs/reports/qa/integration.md": "154f349cf6561fca4c4daa1604cec4d2efc2b352b9459fecf44f81bca170d11d",
+    "docs/reports/coordination/assignments.md": "d73c6c9d3bf19472ee554dd14c0603c77ed1d3e8d874c615e7ae6c44413d5686",
+    "docs/reports/coordination/dependency-requests.md": "bda97c295a4639250b75509e45db6fdae191d733c68603b4d5c399808b318ae3",
+    "docs/reports/coordination/final.md": "a2bcff4b18d0578fb304819268372a6b72f67191c9dd05e9b5141b614d7ce233"
+  },
+  "apiRecheckedAt": "2026-09-24T01:25:36.152Z"
+}

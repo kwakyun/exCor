@@ -1,0 +1,29 @@
+{
+  "at": "2026-09-24T01:23:24.594Z",
+  "url": "http://127.0.0.1:49908/",
+  "portSelection": "net.listen(0) probe then close; Vite explicit port with strictPort; race fails startup",
+  "requests": [
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 1625,
+      "valid": true
+    },
+    {
+      "path": "/api/plans/bsn-jeonpo50",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "bytes": 9717,
+      "valid": true
+    },
+    {
+      "path": "/api/curations/popular",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "bytes": 2384,
+      "valid": true
+    }
+  ],
+  "browserRendering": "not measured; HTTP smoke only"
+}

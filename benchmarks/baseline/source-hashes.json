@@ -1,0 +1,11 @@
+{
+  "baseCommit": "4cb7ca83069f58103707426f215de5c96bddfe01",
+  "files": {
+    "src/services/budgetCalculator.ts": "5dee3f2746472af7d63fbccb8210c7d781e884c390a8a48bf90ee2fc58665c9d",
+    "src/services/planApi.ts": "b7bced58968fb5b4668f5debe6ea35c9c58d454723018fa2a54311b356d63844",
+    "src/data/busanAlleys.ts": "3834b8f8b8dd520761b8dde75a81decfd4d6ebc14c3606d34319a90d28c6162f",
+    "src/data/transitRates.ts": "f4643770f1e10d55fa6a26506f885fd84494f5beca0e2c7963dfa1d76d2c36ec",
+    "package-lock.json": "5fa561da9e37fdecdaa100150d353c7c6bc540f0fcbba70f7389813ffbf4a0aa",
+    "benchmarks/baseline/legacy-engine.cjs": "b4143e4292d1085813ebab110b6a116d51b85109088ee6242624f0d7049c5933"
+  }
+}

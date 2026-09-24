@@ -1,4 +1,5 @@
-import { defineConfig, Plugin } from 'vite';
+import type { Plugin } from 'vite';
+import { defineConfig, configDefaults } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { apiHandler } from './src/server/app';
 
@@ -12,6 +13,9 @@ const backendApiPlugin = (): Plugin => ({
 });
 
 export default defineConfig({
+  test: {
+    exclude: [...configDefaults.exclude, 'chain/**'],
+  },
   plugins: [react(), backendApiPlugin()],
   server: {
     port: 5173,
